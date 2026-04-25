@@ -1,16 +1,65 @@
-# React + Vite
+# Currency Converter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small React + Vite app for converting between currencies using live exchange rates.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Convert an amount from one currency to another
+- Swap the source and target currencies with one click
+- Fetch current rates from the public currency API used by the app
+- Responsive layout with a full-screen background image
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19
+- Vite
+- Tailwind CSS 4
+- ESLint
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+Preview the production build locally:
+
+```bash
+npm run preview
+```
+
+Run lint checks:
+
+```bash
+npm run lint
+```
+
+## How It Works
+
+The app loads exchange-rate data from the CDN endpoint used in `src/hooks/useCurrencyInfo.js`, then uses those rates to calculate the converted value in the UI.
+
+## Project Structure
+
+- `src/App.jsx` - main converter UI and swap logic
+- `src/components/InputBox.jsx` - reusable currency input field
+- `src/hooks/useCurrencyInfo.js` - fetches exchange rates for a selected currency
+- `src/index.css` - global styles
+
+## Notes
+
+- The app expects internet access to fetch live rates.
+- Currency codes are returned in lowercase from the API, so the interface uses lowercase values internally.
